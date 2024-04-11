@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         ArrayList<Vestuario> vestuario = new ArrayList<>();
@@ -48,16 +46,17 @@ public class Main {
                     "\n2- Adicionar uma roupa para parte inferior" +
                     "\n3- Adicionar uma roupa para parte superior" +
                     "\n4- Adicionar uma peça de vestuário genérico" +
-                    "\n5- Voltar para o menu");
+                    "\n5- Adicionar um acessório" +
+                    "\n6- Voltar para o menu");
             System.out.println("Digite a opção que deseja: ");
             int opcao = scanner.nextInt();
-            if (opcao == 1 || opcao == 2 || opcao == 3 || opcao == 4){
+            if (opcao >= 1 && opcao <= 5){
                 adicionarRoupa(scanner, espaco, opcao, vestuario);
-            } else if (opcao == 5) {
+            } else if (opcao == 6) {
                 return;
             }
             else {
-                System.out.println("Digite uma opçaõ válida!");
+                System.out.println("Digite uma opção válida!");
             }
         }
     }
@@ -65,6 +64,7 @@ public class Main {
         Vestuario roupa;
         System.out.println(espaco);
         System.out.println("Digite o material da peça: ");
+        scanner.nextLine(); 
         String material = scanner.nextLine();
         System.out.println("Digite a cor da peça: ");
         String cor = scanner.nextLine();
@@ -78,8 +78,9 @@ public class Main {
         String genero = scanner.nextLine();
         System.out.println("Digite a quantidade de unidades da peça: ");
         int estoque = scanner.nextInt();
-        if(opcao == 1 || opcao == 2 || opcao == 3){
+        if(opcao >= 1 && opcao <= 4){
             System.out.println("Digite o nome da peça: ");
+            scanner.nextLine(); // Limpa o buffer
             String tipoRoupa = scanner.nextLine();
             System.out.println("Digite a estampa da peça: ");
             String estampa = scanner.nextLine();
@@ -91,7 +92,7 @@ public class Main {
             else if (opcao == 2) {
                 System.out.println("Digite o tipo de cintura (alta/baixa/média) da peça: ");
                 String tipoCintura = scanner.nextLine();
-                System.out.println("Digite (1 para sim e 0 para não) se peça tem bolso: ");
+                System.out.println("Digite (true para sim e false para não) se peça tem bolso: ");
                 boolean bolso = scanner.nextBoolean();
                 System.out.println("Digite o comprimento em cm da peça: ");
                 float comprimento = scanner.nextFloat();
@@ -99,13 +100,22 @@ public class Main {
             }
             else{
                 System.out.println("Digite o tipo de decote da peça: ");
+                scanner.nextLine(); // Limpa o buffer
                 String decote = scanner.nextLine();
-                System.out.println("Digite (1 para sim e 0 para não) se peça tem gola: ");
+                System.out.println("Digite (true para sim e false para não) se peça tem gola: ");
                 boolean gola = scanner.nextBoolean();
-                System.out.println("Digite (1 para sim e 0 para não) se peça tem manga: ");
+                System.out.println("Digite (true para sim e false para não) se peça tem manga: ");
                 boolean manga = scanner.nextBoolean();
                 roupa = new ParteSuperior(material, cor, marca, preco, forma, genero, estoque, tipoRoupa, estampa, tipoComprimento, decote, gola, manga);
             }
+        }
+        else if(opcao == 5){
+            System.out.println("Digite a categoria do acessório: ");
+            scanner.nextLine(); // Limpa o buffer
+            String categoriaAcessorio = scanner.nextLine();
+            System.out.println("Digite o revestimento do acessório: ");
+            String revestimentoAcessorio = scanner.nextLine();
+            roupa = new Acessorio(material, cor, marca, preco, forma, genero, categoriaAcessorio, revestimentoAcessorio);
         }
         else{
             roupa = new Vestuario(material, cor, marca, preco, forma, genero, estoque);
@@ -113,5 +123,4 @@ public class Main {
         vestuario.add(roupa);
         System.out.println("Peça adicionada com sucesso!");
     }
-
 }
