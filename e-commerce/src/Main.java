@@ -96,23 +96,19 @@ public class Main {
                 calcado = new Calcado(material, cor, marca, preco, forma, genero, estoque, tipoCalcado, numero);
             }
             else if (opcao == 7) {
-                System.out.println("Digite o tipo de cintura (alta/baixa/média) da peça: ");
-                String  = scanner.nextLine();
                 System.out.println("Digite (true para sim e false para não) se o calçado tem cadarço: ");
                 boolean cadarco = scanner.nextBoolean();
-                System.out.println("Digite o comprimento em cm da peça: ");
-                float comprimento = scanner.nextFloat();
-                calcado = new Tenis(material, cor, marca, preco, forma, genero, estoque, tipoRoupa, estampa, tipoComprimento, tipoCintura, bolso, comprimento);
+                System.out.println("Digite o tamanho da plataforma em cm do calçado: ");
+                float tamanhoPlataforma = scanner.nextFloat();
+                calcado = new Tenis(material, cor, marca, preco, forma, genero, estoque, tipoCalcado, numero, cadarco, tamanhoPlataforma);
             }
             else{
-                System.out.println("Digite o tipo de decote da peça: ");
+                System.out.println("Digite (true para sim e false para não) se o calçado tem salto: ");
                 scanner.nextLine(); // Limpa o buffer
-                String decote = scanner.nextLine();
-                System.out.println("Digite (true para sim e false para não) se peça tem gola: ");
-                boolean gola = scanner.nextBoolean();
-                System.out.println("Digite (true para sim e false para não) se peça tem manga: ");
-                boolean manga = scanner.nextBoolean();
-                calcado = new ParteSuperior(material, cor, marca, preco, forma, genero, estoque, tipoRoupa, estampa, tipoComprimento, decote, gola, manga);
+                boolean salto = scanner.nextBoolean();
+                System.out.println("Digite o tamanho do cano da bota: ");
+                int tamanhoCano = scanner.nextBoolean();
+                calcado = new Bota(material, cor, marca, preco, forma, genero, estoque, tipoCalcado, numero, salto, tamanhoCano);
             }
         }
         vestuario.add(calcado);
