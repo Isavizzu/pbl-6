@@ -8,6 +8,14 @@ public class Bota extends Calcado{
         this.tamanhoCano = tamanhoCano;
     }
 
+    public boolean setSalto(){
+        return  salto;
+    }
+
+    public int setTamanhoCano(){
+        return tamanhoCano;
+    }
+
     public void estoque(){
         if (salto == true ) {
             System.out.println("Há " + setEstoque() + " calçados de " + setTipoCalcado() + ", com salto no estoque!");
