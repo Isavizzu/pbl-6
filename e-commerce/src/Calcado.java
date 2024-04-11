@@ -12,5 +12,9 @@ public class Calcado extends Vestuario {
     public String setTipoCalcado(){
         return  tipoCalcado;
     }
+
+    public int setNumero(){
+        return numero;
+    }
     
 }
