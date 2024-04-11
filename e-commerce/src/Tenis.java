@@ -8,6 +8,14 @@ public class Tenis extends Calcado{
         this.tamanhoPlataforma = tamanhoPlataforma;
     }
 
+    public boolean setCadarco(){
+        return  cadarco;
+    }
+
+    public float setTamanhoPlataforma(){
+        return tamanhoPlataforma;
+    }
+
     public void estoque(){
         if (cadarco == true ) {
             System.out.println("Há " + setEstoque() + " calçados de " + setTipoCalcado() + ", com cardaço no estoque!");
