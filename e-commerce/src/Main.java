@@ -47,19 +47,79 @@ public class Main {
                     "\n3- Adicionar uma roupa para parte superior" +
                     "\n4- Adicionar uma peça de vestuário genérico" +
                     "\n5- Adicionar um acessório" +
-                    "\n6- Voltar para o menu");
+                    "\n6- Adicionar um calçado génerico" +
+                    "\n7- Adicionar um tênis" +
+                    "\n8- Adicionar uma bota" +
+                    "\n9- Voltar para o menu");
             System.out.println("Digite a opção que deseja: ");
             int opcao = scanner.nextInt();
             if (opcao >= 1 && opcao <= 5){
                 adicionarRoupa(scanner, espaco, opcao, vestuario);
-            } else if (opcao == 6) {
+            } else if (opcao == 9) {
                 return;
+            }
+            else if (opcao >= 6 && opcao <= 8){
+                adicionarCalcado(scanner, espaco, opcao, vestuario);
             }
             else {
                 System.out.println("Digite uma opção válida!");
             }
         }
     }
+
+    public static void adicionarCalcado(Scanner scanner, String espaco, int opcao, ArrayList<Vestuario> Vestuario){
+        Vestuario calcado;
+        System.out.println(espaco);
+        System.out.println("Digite o material do calçado: ");
+        scanner.nextLine(); 
+        String material = scanner.nextLine();
+        System.out.println("Digite a cor do calçado: ");
+        String cor = scanner.nextLine();
+        System.out.println("Digite a marca do calçado: ");
+        String marca = scanner.nextLine();
+        System.out.println("Digite o preço do calçado: ");
+        String preco = scanner.nextLine();
+        System.out.println("Digite a forma (infantil/juvenil/adulto) do calçado: ");
+        String forma = scanner.nextLine();
+        System.out.println("Digite o gênero do calçado: ");
+        String genero = scanner.nextLine();
+        System.out.println("Digite a quantidade de pares: ");
+        int estoque = scanner.nextInt();
+
+         if(opcao >= 6 && opcao <= 8){
+            System.out.println("Digite o nome da peça: ");
+            scanner.nextLine(); // Limpa o buffer
+            String tipoCalcado = scanner.nextLine();
+            System.out.println("Digite o número do calçado: ");
+            int numero = scanner.nextLine();
+            if (opcao == 6) {
+                calcado = new Calcado(material, cor, marca, preco, forma, genero, estoque, tipoCalcado, numero);
+            }
+            else if (opcao == 7) {
+                System.out.println("Digite o tipo de cintura (alta/baixa/média) da peça: ");
+                String  = scanner.nextLine();
+                System.out.println("Digite (true para sim e false para não) se o calçado tem cadarço: ");
+                boolean cadarco = scanner.nextBoolean();
+                System.out.println("Digite o comprimento em cm da peça: ");
+                float comprimento = scanner.nextFloat();
+                calcado = new Tenis(material, cor, marca, preco, forma, genero, estoque, tipoRoupa, estampa, tipoComprimento, tipoCintura, bolso, comprimento);
+            }
+            else{
+                System.out.println("Digite o tipo de decote da peça: ");
+                scanner.nextLine(); // Limpa o buffer
+                String decote = scanner.nextLine();
+                System.out.println("Digite (true para sim e false para não) se peça tem gola: ");
+                boolean gola = scanner.nextBoolean();
+                System.out.println("Digite (true para sim e false para não) se peça tem manga: ");
+                boolean manga = scanner.nextBoolean();
+                calcado = new ParteSuperior(material, cor, marca, preco, forma, genero, estoque, tipoRoupa, estampa, tipoComprimento, decote, gola, manga);
+            }
+        }
+        vestuario.add(calcado);
+        System.out.println("Calçado adicionada com sucesso!");
+        
+    }
+    
     public static void adicionarRoupa(Scanner scanner, String espaco, int opcao, ArrayList<Vestuario> vestuario){
         Vestuario roupa;
         System.out.println(espaco);
