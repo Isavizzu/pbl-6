@@ -11,4 +11,33 @@ public class ParteInferior  extends Roupa{
         this.bolso = bolso;
         this.comprimento = comprimento;
     }
+
+    public void descricao(){
+        String temBolso = verificaBolso();
+        String espaco = "-------------------------";
+        System.out.println(espaco);
+        System.out.println("         Descrição        ");
+        System.out.println(espaco);
+        System.out.println("Cor: "+ getCor()+
+                "\nMarca: "+ getMarca()+
+                "\nPreço: "+ getPreco()+
+                "\nForma: "+ getForma()+
+                "\nGênero: "+ getGenero()+
+                "\nEstoque: "+ getEstoque()+
+                "\nMaterial: "+ getMaterial()+
+                "\n Tipo de roupa: " + getTipoRoupa()+
+                "\n Estampa: " +getEstampa()+
+                "\n Tipo de comprimento: " +getTipoComprimento()+
+                "\nTem bolso: "+ temBolso +
+                "\nTipo de cintura: "+ tipoCintura +
+                "\nComprimento: "+ comprimento);
+    }
+
+    private String verificaBolso() {
+        if (bolso) {
+            return "Sim";
+        } else {
+            return "Não";
+        }
+    }
 }

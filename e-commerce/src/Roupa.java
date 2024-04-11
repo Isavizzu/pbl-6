@@ -10,8 +10,33 @@ public class Roupa  extends Vestuario{
         this.tipoComprimento = tipoComprimento;
     }
 
-    public String setTipoRoupa(){
+    public String getTipoRoupa(){
         return  tipoRoupa;
+    }
+
+    public String getEstampa(){
+        return estampa;
+    }
+
+    public String getTipoComprimento(){
+        return  tipoComprimento;
+    }
+
+    public void descricao(){
+        String espaco = "-------------------------";
+        System.out.println(espaco);
+        System.out.println("         Descrição        ");
+        System.out.println(espaco);
+        System.out.println("Cor: "+ getCor()+
+                "\nMarca: "+ getMarca()+
+                "\nPreço: "+ getPreco()+
+                "\nForma: "+ getForma()+
+                "\nGênero: "+ getGenero()+
+                "\nEstoque: "+ getEstoque()+
+                "\nMaterial: "+ getMaterial()+
+                "\n Tipo de roupa: " + getTipoRoupa()+
+                "\n Estampa: " +getEstampa()+
+                "\n Tipo de comprimento: " +getTipoComprimento());
     }
 
 }

@@ -11,22 +11,41 @@ public class ParteSuperior extends Roupa{
         this.gola = gola;
         this.manga = manga;
     }
-    public void estoque(){
-        if (manga == true && gola == true) {
-            System.out.println("Há " + setEstoque() + " peças de " + setTipoRoupa() + ", com o decote de tipo:" +
-                    decote + " e com gola e mangas, no estoque!");
+    public void descricao(){
+        String temGola = verificaGola();
+        String temManga = verificaManga();
+        String espaco = "-------------------------";
+        System.out.println(espaco);
+        System.out.println("         Descrição        ");
+        System.out.println(espaco);
+        System.out.println("Cor: "+ getCor()+
+                            "\nMarca: "+ getMarca()+
+                            "\nPreço: "+ getPreco()+
+                            "\nForma: "+ getForma()+
+                            "\nGênero: "+ getGenero()+
+                            "\nEstoque: "+ getEstoque()+
+                            "\nMaterial: "+ getMaterial()+
+                            "\n Tipo de roupa: " + getTipoRoupa()+
+                            "\n Estampa: " +getEstampa()+
+                            "\n Tipo de comprimento: " +getTipoComprimento()+
+                            "\nTipo de decote: "+ decote+
+                            "\nTem gola: "+ temGola +
+                            "\nTem mangas: "+ temManga);
+    }
+    private String verificaGola() {
+        if (gola) {
+            return "Sim";
+        } else {
+            return "Não";
         }
-        else if (manga){
-            System.out.println("Há " + setEstoque() + " peças de " + setTipoRoupa() + ", com o decote de tipo:" +
-                    decote + " e sem gola, mas com mangas, no estoque!");
+    }
+
+    private String verificaManga(){
+        if (manga){
+            return "Sim";
         }
-        else if (gola){
-            System.out.println("Há " + setEstoque() + " peças de " + setTipoRoupa() + ", com o decote de tipo:" +
-                    decote + " e com gola, mas sem mangas, no estoque!");
-        }
-        else {
-            System.out.println("Há " + setEstoque() + " peças de " + setTipoRoupa() + ", com o decote de tipo:" +
-                    decote + " e sem gola e sem mangas, no estoque!");
+        else{
+            return "Não";
         }
     }
 
